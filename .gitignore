@@ -1,0 +1,9 @@
+npm-debug.log*
+node_modules
+
+# build artifacts
+**/dist/*
+.nyc_output
+coverage
+
+.idea
