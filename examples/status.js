@@ -3,8 +3,9 @@
 const {Wireless} = require('..');
 const wireless = new Wireless('wlan0');
 
-wireless.status().then(console.log);
-
+(async () => {
+  console.log(await wireless.status());
+})();
 
 // ----------------------
 // inactive

@@ -3,6 +3,7 @@
 const {Wireless} = require('..');
 const wireless = new Wireless();
 
-return wireless.connect('TY', 'king8888').then(result => {
+(async () => {
+  const result = await wireless.connect('TY', 'password');
   console.log(result);
-});
+})();

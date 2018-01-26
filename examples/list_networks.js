@@ -3,4 +3,6 @@
 const {Wireless} = require('..');
 const wireless = new Wireless('wlan0');
 
-wireless.listNetworks().then(console.log);
+(async () => {
+  console.log(await wireless.listNetworks());
+})();

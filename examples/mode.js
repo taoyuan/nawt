@@ -3,4 +3,6 @@
 const {Wireless} = require('..');
 const wireless = new Wireless();
 
-wireless.mode().then(console.log);
+(async () => {
+  console.log(await wireless.mode());
+})();
