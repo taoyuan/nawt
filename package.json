@@ -1,5 +1,5 @@
 {
-  "name": "awt",
+  "name": "nwireless",
   "version": "2.0.5",
   "description": "An advanced wireless tools",
   "main": "index",
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taoyuan/awt.git"
+    "url": "https://github.com/taoyuan/nwireless.git"
   },
   "bugs": {
-    "url": "https://github.com/taoyuan/awt/issues"
+    "url": "https://github.com/taoyuan/nwireless/issues"
   },
   "keywords": [
     "wireless",
@@ -30,18 +30,26 @@
     "child-process-promise": "^2.2.1",
     "debug": "^3.1.0",
     "eventemitter2": "^5.0.1",
+    "execa": "^0.9.0",
     "fs-extra": "^5.0.0",
+    "inflection": "^1.12.0",
     "lodash": "^4.17.4",
+    "nprops": "^2.0.2",
+    "sysctlx": "0.0.7",
     "wireless-tools": "^0.19.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
     "@types/fs-extra": "^5.0.0",
+    "@types/inflection": "^1.5.28",
     "@types/mocha": "^2.2.47",
+    "@types/sinon": "^4.1.3",
     "bluebird": "^3.5.1",
     "chai": "^4.1.2",
     "eslint": "^4.16.0",
     "eslint-plugin-mocha": "^4.11.0",
-    "mocha": "^5.0.0"
+    "mocha": "^5.0.0",
+    "moment": "^2.20.1",
+    "sinon": "^4.2.2"
   }
 }

@@ -7,12 +7,12 @@
 
 ## Installation
 
-`npm i awt`
+`npm i nwireless`
 
 ## Pre-requirements
 
 ```bash
-sudo apt-get install -y hostapd dnsmasq haveged
+sudo apt install -y hostapd dnsmasq haveged
 ```
 
 ## Note
@@ -28,7 +28,7 @@ http://w1.fi/wpa_supplicant/devel/ctrl_iface_page.html
 ### Example: Wifi Connection
 
 ```js
-const {Wireless} = require('awt');
+const {Wireless} = require('nwireless');
 const wireless = new Wireless();
 
 (async () => {
@@ -55,8 +55,8 @@ sudo SSID="ssid" PASS="password" npm test
 
  MIT ©  [Yuan Tao](https://github.com/taoyuan)
 
-[npm-url]: https://npmjs.org/package/awt
-[npm-image]: https://img.shields.io/npm/v/awt.svg?style=flat
+[npm-url]: https://npmjs.org/package/nwireless
+[npm-image]: https://img.shields.io/npm/v/nwireless.svg?style=flat
 
-[download-image]: http://img.shields.io/npm/dm/awt.svg?style=flat
+[download-image]: http://img.shields.io/npm/dm/nwireless.svg?style=flat
 

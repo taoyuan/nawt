@@ -1,19 +1,18 @@
+const moment = require('moment');
 const {Wireless, AP} = require('..');
-const w = new Wireless();
 
 function output(data, log) {
-  data.trim().split(/[\n\r]/).forEach(line => log(`[ap] ${line}`));
+  data.trim().split(/[\n\r]/).forEach(line => log(`[ap] ${moment().utcOffset(-8).format('HH:mm:ss')} - ${line}`));
 }
 
 (async () => {
-  await w.open();
+  const w = await Wireless.create('phy0');
   const mode = await w.mode();
   if (mode === 'station') {
     await w.disconnect();
   }
-  await w.close();
 
-  const ap = AP.create('WIRELESSER');
+  const ap = await AP.create('AWT', {iface: 'phy0', password: '12345678'});
 
   ap.on('stdout', data => output(data, console.log));
   ap.on('stderr', data => output(data, console.error));
@@ -21,11 +20,10 @@ function output(data, log) {
   ap.on('started', () => console.log('>>>> started'));
   ap.on('close', () => console.log('>>>> closed'));
 
-  function cleanup(sig) {
+  async function cleanup(sig) {
     console.log(sig);
-    ap.close().then(() => {
-      console.log('>>>> exit');
-    });
+    await ap.close();
+    console.log('>>>> exit');
   }
 
   process.on('SIGINT', () => cleanup('SIGINT'));
