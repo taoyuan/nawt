@@ -9,11 +9,12 @@
 
 `npm i nwireless`
 
-## Pre-requirements
+## Dependencies
 
-```bash
-sudo apt install -y hostapd dnsmasq haveged
-```
+* hostapd 
+* dnsmasq 
+* haveged
+* [create_ap](https://github.com/oblique/create_ap)
 
 ## Note
 

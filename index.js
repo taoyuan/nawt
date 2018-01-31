@@ -1,7 +1,7 @@
 'use strict';
 
-exports.iw = require('./lib/iw');
 exports.apc = require('./lib/apc');
+exports.ifacer = require('./lib/ifacer');
 
 exports.Wireless = require('./lib/wireless');
 exports.WPA = require('./lib/wpa');

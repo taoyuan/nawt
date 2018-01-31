@@ -13,9 +13,9 @@ const ssid = 'nw-' + (new Date()).getMilliseconds();
   await apc.configure(ssid);
   console.log('Starting create_ap with ssid: ' + ssid);
   await apc.start();
-  console.log('Started. Waiting for 1 minute to stop automatically, or press CTRL+C to stop it manually');
+  console.log('Started. Waiting for 2 minute to stop automatically, or press CTRL+C to stop it manually');
 
-  setTimeout(exit, 60000);
+  setTimeout(exit, 120000);
 })();
 
 process.on('SIGINT', exit);
