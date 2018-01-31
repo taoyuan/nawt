@@ -33,10 +33,8 @@ const {Wireless} = require('nwireless');
 const wireless = new Wireless();
 
 (async () => {
-  await wireless.open();
   const result = await wireless.connect('ssid', 'password');
   console.log(result);
-  await wireless.close();
 })()
 ```
 
