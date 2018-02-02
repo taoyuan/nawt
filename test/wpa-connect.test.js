@@ -2,51 +2,62 @@
 
 const PromiseA = require('bluebird');
 const s = require('./support');
-const {WPA, Monitor} = require('..');
+const wpa = require('..').wpa;
+
+const IFACE = 'wlan0';
 
 if (s.ssid) {
   describe('WPA connect', () => {
-    const wpa = new WPA('wlan0');
-    const monitor = new Monitor('wlan0');
 
-    beforeEach(() => {
-      return wpa.listNetworks().map(n => wpa.removeNetwork(n.id));
+    let monitor;
+    before(async () => {
+      monitor = await wpa.monitor(IFACE);
+    });
+
+    after(() => {
+      monitor.close();
+    });
+
+    beforeEach(async () => {
+      const networks = await wpa.listNetworks(IFACE);
+      for (let i = 0; i < networks.length; i++) {
+        await wpa.removeNetwork(IFACE, networks[i].id);
+      }
     });
 
     it('should emit "invalidkey" event', function (done) {
       this.timeout(10000);
       monitor.once('invalidkey', () => done());
 
-      addNetwork(wpa, s.ssid, 'invalid_key');
+      addNetwork(IFACE, s.ssid, 'invalid_key');
     });
 
     it('should emit "connected" event', function (done) {
       this.timeout(10000);
       monitor.once('connected', () => done());
 
-      addNetwork(wpa, s.ssid, s.password);
+      addNetwork(IFACE, s.ssid, s.password);
     });
 
     it('should emit "disconnected" event', function (done) {
       this.timeout(10000);
 
-      monitor.once('connected', () => {
+      monitor.once('connected', async () => {
         monitor.once('disconnected', () => done());
-        wpa.disconnect();
+        await wpa.disconnect(IFACE);
       });
 
-      addNetwork(wpa, s.ssid, s.password);
+      addNetwork(IFACE, s.ssid, s.password);
     });
   });
 }
 
-function addNetwork(wpa, ssid, password) {
-  return wpa.addNetwork().then(id => {
-    return PromiseA.mapSeries([
-      () => wpa.setNetworkSettingString(id, 'ssid', ssid),
-      () => wpa.setNetworkSettingString(id, 'psk', password),
-      () => wpa.enableNetwork(id),
-      () => wpa.selectNetwork(id),
-    ], fn => fn());
-  });
+async function addNetwork(iface, ssid, password) {
+  const id = await wpa.addNetwork(iface);
+  return PromiseA.mapSeries([
+    () => wpa.setNetworkSettingString(iface, id, 'ssid', ssid),
+    () => wpa.setNetworkSettingString(iface, id, 'psk', password),
+    () => wpa.enableNetwork(iface, id),
+    () => wpa.selectNetwork(iface, id),
+  ], fn => fn());
 }

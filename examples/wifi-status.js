@@ -1,11 +1,6 @@
 'use strict';
 
-const {Wireless} = require('..');
-const wireless = new Wireless('wlan0');
-
-(async () => {
-  console.log(await wireless.status());
-})();
+const nw = require('..');
 
 // ----------------------
 // inactive
@@ -48,3 +43,8 @@ const wireless = new Wireless('wlan0');
 //   p2p_device_address: 'b8:27:eb:7e:11:87',
 //   address: 'b8:27:eb:7e:11:87',
 //   uuid: '1b984a4b-f4df-5ca5-9c09-04b4dc519b0c' }
+
+(async () => {
+  const wifi = await nw.wifi('wlan0');
+  console.log(await wifi.status());
+})();

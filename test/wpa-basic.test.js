@@ -3,30 +3,26 @@
 'use strict';
 const {assert} = require('chai');
 require('./support');
-const {WPA} = require('..');
+const wpa = require('..').wpa;
 
 describe('WPA Basic Tests', function () {
 
   describe('functions', function () {
-    const wpa = new WPA('wlan0');
 
-    it('should list networks', function () {
-      return wpa.listNetworks().then(networks => {
-        assert.typeOf(networks, 'array');
-      });
+    it('should list networks', async function () {
+      const networks = await wpa.listNetworks('wlan0');
+      assert.typeOf(networks, 'array');
     });
 
-    it('should get status', function () {
-      return wpa.status().then(status => {
-        assert.typeOf(status, 'object');
-      });
+    it('should get status', async function () {
+      const status = await wpa.status('wlan0');
+      assert.typeOf(status, 'object');
     });
 
-    it('should scan', function () {
+    it('should scan', async function () {
       this.timeout(6000);
-      return wpa.scan().then(networks => {
-        assert.typeOf(networks, 'array');
-      });
+      const networks = await wpa.scan('wlan0');
+      assert.typeOf(networks, 'array');
     });
   });
 });

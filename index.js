@@ -1,9 +1,12 @@
 'use strict';
 
-exports.apc = require('./lib/apc');
-exports.ifacer = require('./lib/ifacer');
+const WiFi = require('./lib/wifi');
 
-exports.Wireless = require('./lib/wireless');
-exports.WPA = require('./lib/wpa');
-exports.Monitor = require('./lib/monitor');
-exports.AP = require('./lib/ap');
+exports.iw = require('./lib/iw');
+exports.iu = require('./lib/iu');
+exports.wpa = require('./lib/wpa');
+exports.apc = require('./lib/apctl');
+
+exports.wifi = async iface => WiFi.create(iface);
+
+exports.WiFi = WiFi;
