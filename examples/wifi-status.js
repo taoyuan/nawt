@@ -1,6 +1,6 @@
 'use strict';
 
-const nw = require('..');
+const wifi = require('..').wifi;
 
 // ----------------------
 // inactive
@@ -45,6 +45,5 @@ const nw = require('..');
 //   uuid: '1b984a4b-f4df-5ca5-9c09-04b4dc519b0c' }
 
 (async () => {
-  const wifi = await nw.wifi('wlan0');
-  console.log(await wifi.status());
+  console.log(await wifi.status('onboard'));
 })();

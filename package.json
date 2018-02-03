@@ -1,7 +1,8 @@
 {
-  "name": "nwireless",
+  "name": "awt",
   "version": "2.1.3",
-  "description": "An advanced wireless tools",
+  "description": "An linux Advanced Wireless Tools",
+  "author": "Yuan Tao <towyuan@outlook.com>",
   "main": "index",
   "engines": {
     "node": ">= 8.0.0"
@@ -13,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taoyuan/nwireless.git"
+    "url": "https://github.com/taoyuan/awt.git"
   },
   "bugs": {
-    "url": "https://github.com/taoyuan/nwireless/issues"
+    "url": "https://github.com/taoyuan/awt/issues"
   },
   "keywords": [
     "wireless",
@@ -24,7 +25,6 @@
     "wifi",
     "control"
   ],
-  "author": "Yuan Tao <towyuan@outlook.com>",
   "license": "MIT",
   "dependencies": {
     "child-process-promise": "^2.2.1",

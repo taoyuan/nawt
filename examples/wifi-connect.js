@@ -1,6 +1,6 @@
 'use strict';
 
-const nw = require('..');
+const wifi = require('..').wifi;
 
 if (process.argv.length < 4) {
   console.log('Usage: sudo node examples/connect.js <ssid> <password>');
@@ -8,7 +8,6 @@ if (process.argv.length < 4) {
 }
 
 (async () => {
-  const wifi = await nw.wifi('wlan0');
-  const result = await wifi.connect(process.argv[2], process.argv[3]);
+  const result = await wifi.connect('onboard', process.argv[2], process.argv[3]);
   console.log('connect', result);
 })();

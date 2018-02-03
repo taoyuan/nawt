@@ -1,8 +1,7 @@
 'use strict';
 
-const nw = require('..');
+const wifi = require('..').wifi;
 
 (async () => {
-  const wifi = await nw.wifi('wlan0');
-  console.log(await wifi.mode());
+  console.log(await wifi.mode('onboard'));
 })();

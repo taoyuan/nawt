@@ -3,5 +3,5 @@
 const wifi = require('..').wifi;
 
 (async () => {
-  console.log(await wifi.listNetworks('onboard'));
+  console.log(await wifi.state('onboard'));
 })();

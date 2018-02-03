@@ -3,5 +3,5 @@
 const iw = require('..').iw;
 
 (async () => {
-  console.log(await iw.scan('wlan0'));
+  console.log(await iw.scan('onboard'));
 })();
