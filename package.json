@@ -1,6 +1,6 @@
 {
   "name": "nwireless",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "An advanced wireless tools",
   "main": "index",
   "engines": {
@@ -46,7 +46,7 @@
     "@types/sinon": "^4.1.3",
     "bluebird": "^3.5.1",
     "chai": "^4.1.2",
-    "eslint": "^4.16.0",
+    "eslint": "^4.17.0",
     "eslint-plugin-mocha": "^4.11.0",
     "mocha": "^5.0.0",
     "moment": "^2.20.1",
