@@ -1,5 +1,7 @@
 # AWT -Advanced Wireless Tools
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/taoyuan/nawt.svg)](https://greenkeeper.io/)
+
 [![NPM version][npm-image]][npm-url]
 [![Downloads][download-image]][npm-url]
 
